@@ -1,13 +1,15 @@
 ﻿#region header
 
-// MouseJiggle - AssemblyInfo.cs
+// ScreenAlive - AssemblyInfo.cs
 // 
+// Aaron Cutright
+// Copyright Cutright Industries 2017.
+// 
+// Forked from 
+// https://mousejiggler.codeplex.com
 // Alistair J. R. Young
 // Arkane Systems
-// 
 // Copyright Arkane Systems 2012-2013.
-// 
-// Created: 2013-08-24 12:41 PM
 
 #endregion
 
@@ -19,15 +21,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle ("MouseJiggle")]
-[assembly: AssemblyDescription (@"A utility to continuously jiggle the mouse pointer to prevent screen saver activation.
-
-Tick the 'Enable jiggle?' checkbox to begin jiggling the mouse; untick it to stop. The 'Zen jiggle?' checkbox enables a mode in which the pointer is jiggled 'virtually' - the system believes it to be moving and thus screen saver activation, etc., is prevented, but the pointer does not actually move."
-    )]
+[assembly: AssemblyTitle("ScreenAlive")]
+[assembly: AssemblyDescription("A utility to keep the screen alive (keeps the screensaver from activating or the screen from dimming) whenever specified applications are running. This works by scanning open windows for specified window titles. When a title matches (case sensitive!), ScreenAlive will keep the screensaver from activating as long as 'Enable ScreenAlive' is checked. The program works by virtually 'jiggling' the mouse (this is the 'Zen Jiggle' mode) to make Windows think that the user is active. If 'Zen Jiggle' is deactivated, the user's mouse will regularly move, and should only be used if Zen Jiggle does not work. Full list of functionality at https://github.com/arcutright/screen-alive")]
 [assembly: AssemblyConfiguration ("")]
-[assembly: AssemblyCompany ("Arkane Systems")]
-[assembly: AssemblyProduct ("MouseJiggle")]
-[assembly: AssemblyCopyright ("Copyright © Alistair J. R. Young 2007-2013")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 
@@ -36,10 +32,6 @@ Tick the 'Enable jiggle?' checkbox to begin jiggling the mouse; untick it to sto
 // COM, set the ComVisible attribute to true on that type.
 
 [assembly: ComVisible (false)]
-
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-
-[assembly: Guid ("e1fc2039-43a7-4843-8a43-8f896c257adc")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -52,6 +44,11 @@ Tick the 'Enable jiggle?' checkbox to begin jiggling the mouse; untick it to sto
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion ("1.6.0.0")]
-[assembly: AssemblyFileVersion ("1.6.0.0")]
 [assembly: NeutralResourcesLanguage ("en-US")]
+[assembly: AssemblyCompany("Cutright Industries")]
+[assembly: AssemblyProduct("ScreenAlive")]
+[assembly: AssemblyCopyright("Copyright © Aaron Cutright 2017")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: Guid("e1fc2039-43a7-4843-8a43-8f896c257adc")]
+

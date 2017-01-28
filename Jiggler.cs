@@ -1,13 +1,15 @@
 #region header
 
-// MouseJiggle - Jiggler.cs
+// ScreenAlive - Jiggler.cs
 // 
+// Aaron Cutright
+// Copyright Cutright Industries 2017.
+// 
+// Forked from 
+// https://mousejiggler.codeplex.com
 // Alistair J. R. Young
 // Arkane Systems
-// 
-// Copyright Arkane Systems 2012-2013.  All rights reserved.
-// 
-// Created: 2014-04-24 8:08 AM
+// Copyright Arkane Systems 2012-2013.
 
 #endregion
 
@@ -19,7 +21,7 @@ using System.Runtime.InteropServices;
 
 #endregion
 
-namespace ArkaneSystems.MouseJiggle
+namespace CutrightIndustries.ScreenAlive
 {
     public static class Jiggler
     {

@@ -1,13 +1,15 @@
 #region header
 
-// MouseJiggle - AboutBox.cs
+// ScreenAlive - AboutBox.cs
 // 
+// Aaron Cutright
+// Copyright Cutright Industries 2017.
+// 
+// Forked from 
+// https://mousejiggler.codeplex.com
 // Alistair J. R. Young
 // Arkane Systems
-// 
 // Copyright Arkane Systems 2012-2013.
-// 
-// Created: 2013-08-24 12:41 PM
 
 #endregion
 
@@ -15,7 +17,7 @@ using System;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace ArkaneSystems.MouseJiggle
+namespace CutrightIndustries.ScreenAlive
 {
     partial class AboutBox : Form
     {

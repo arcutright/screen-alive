@@ -1,6 +1,6 @@
 ﻿#region header
 
-// ScreenAlive - MainForm.cs
+// ScreenAlive - WindowDetection.cs
 // 
 // Aaron Cutright
 // Copyright Cutright Industries 2017.
@@ -20,12 +20,13 @@ namespace CutrightIndustries.ScreenAlive
             {
                 for(int i = 0; i < windowTitles.Length; i++)
                 {
+                    windowTitles[i] = windowTitles[i].Trim();
                     if (windowTitles[i] == null || windowTitles[i] == "")
                         continue;
                     Process[] processes = Process.GetProcesses();
                     for(int p=0; p < processes.Length; p++)
                     {
-                        title = processes[p].MainWindowTitle;
+                        title = processes[p].MainWindowTitle.Trim();
                         if (title == null || title == "")
                             continue;
                         if (partialMatchingEnabled && title.Contains(windowTitles[i]))

@@ -33,6 +33,7 @@ namespace CutrightIndustries.ScreenAlive
         }
         private const int MOUSEMOVE = 8;
         protected bool zig = true;
+        protected bool titleMatch;
 
         public MainForm()
         {
@@ -41,20 +42,22 @@ namespace CutrightIndustries.ScreenAlive
 
         private void jiggleTimer_Tick(object sender, EventArgs e)
         {
-            // jiggle mouse cursor
-            if (cbZenJiggle.Checked)
-                Jiggler.Jiggle(0, 0);
-            else
-            {
-                if (zig)
-                    Jiggler.Jiggle(4, 4);
-                else
-                    Jiggler.Jiggle(-4, -4);
-            }
-            zig = !zig;
             //check if there are any window title matches, if so, enable the jiggle timer
             string[] lines = tbWindowTitles.Text.Split('\n');
-            jiggleTimer.Enabled = WindowDetection.IsAnyWindowOpen(lines, cbPartialTitleMatching.Checked);
+            if (WindowDetection.IsAnyWindowOpen(lines, cbPartialTitleMatching.Checked))
+            {
+                //jiggle mouse cursor
+                if (cbZenJiggle.Checked)
+                    Jiggler.Jiggle(0, 0);
+                else
+                {
+                    if (zig)
+                        Jiggler.Jiggle(4, 4);
+                    else
+                        Jiggler.Jiggle(-4, -4);
+                }
+                zig = !zig;
+            }
         }
 
         private void cbEnabled_CheckedChanged(object sender, EventArgs e)
@@ -82,7 +85,7 @@ namespace CutrightIndustries.ScreenAlive
         {
             try
             {
-                // check registry key for settings
+                //check registry key for settings
                 RegistryKey key = Registry.CurrentUser.CreateSubKey(REGISTRY.location,
                                                                      RegistryKeyPermissionCheck.ReadWriteSubTree);
                 var enabled = (int)key.GetValue(REGISTRY.enabled, 0);
@@ -109,15 +112,15 @@ namespace CutrightIndustries.ScreenAlive
                     for (int i = 0; i < titleArray.Length; i++)
                     {
                         if (i < titleArray.Length - 1)
-                            formattedTitles += titleArray[i] + "\n";
+                            formattedTitles += titleArray[i].Trim() + "\n";
                         else
-                            formattedTitles += titleArray[i];
+                            formattedTitles += titleArray[i].Trim();
                     }
                     //store in textbox
                     tbWindowTitles.Text = formattedTitles;
                 }
-                jiggleTimer.Enabled = false; //don't automatically start jiggling
-                bTitlesUpdated_Click(null, null); //see if stored titles are matching, start jiggletimer if so
+                jiggleTimer.Enabled = true; //automatically start jiggle timer
+                jiggleTimer_Tick(null, null); //initialize timer (unnecessary, but guarantees no screen timeout)
             }
             catch { }
 
@@ -147,22 +150,22 @@ namespace CutrightIndustries.ScreenAlive
 
         private void cmdToTray_Click(object sender, EventArgs e)
         {
-            // minimize to tray
+            //hide the window
             Visible = false;
-            // remove from taskbar
-            ShowInTaskbar = false;
-            // show tray icon
+            //show tray icon
             notifyIcon.Visible = true;
+            //remove taskbar icon
+            ShowInTaskbar = false;
         }
 
         private void notifyIcon_DoubleClick(object sender, EventArgs e)
         {
-            // restore the window
+            //restore the window
             Visible = true;
-            // replace in taskbar
-            ShowInTaskbar = true;
-            // hide tray icon
+            //hide tray icon
             notifyIcon.Visible = false;
+            //place icon to taskbar
+            ShowInTaskbar = true;
         }
 
         private void cbPartialTitleMatching_CheckedChanged(object sender, EventArgs e)
@@ -203,9 +206,8 @@ namespace CutrightIndustries.ScreenAlive
                 RegistryKey key = Registry.CurrentUser.CreateSubKey(REGISTRY.location,
                                                                     RegistryKeyPermissionCheck.ReadWriteSubTree);
                 key.SetValue(REGISTRY.windowTitles, encodedLines, RegistryValueKind.String);
-
-                //check if there are any window title matches, if so, enable the jiggle timer
-                jiggleTimer.Enabled = WindowDetection.IsAnyWindowOpen(lines, cbPartialTitleMatching.Checked);
+                //update
+                jiggleTimer_Tick(null, null);
             }
         }
 
@@ -216,12 +218,12 @@ namespace CutrightIndustries.ScreenAlive
 
         private void bConextMenuOpen_Click(object sender, EventArgs e)
         {
-            // restore the window
+            //restore the window
             Visible = true;
-            // replace in taskbar
-            ShowInTaskbar = true;
-            // hide tray icon
+            //hide tray icon
             notifyIcon.Visible = false;
+            //place icon in taskbar
+            ShowInTaskbar = true;
         }
     }
 }

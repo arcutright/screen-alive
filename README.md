@@ -18,17 +18,17 @@ currently not a configurable setting, although I may add this functionality in t
 
 User Interface:
 
-![user interface](Screenshots/user_interface.png)
+![user interface](./Screenshots/user_interface.png)
 
 Operation
 =========
 
-Simply run the ScreenAlive.exe included in the release .zip file. Enter the titles<sup>1</sup> (or parital 
-titles if "Partial title matching" is checked) of windows that you want ScreenAlive to activate
-for. This means that any time a window is opened with that title, ScreenAlive will keep the
-screen from timing out (activating the screensaver or dimming to black). Note that if "Enable
-ScreenAlive" is unchecked, this program will do nothing. You can minimize ScreenAlive to the
-system tray to keep it from impeding your normal workflow and cluttering the taskbar.
+Simply run the ScreenAlive.exe included in the Releases section of this repo. Enter the titles<sup>1</sup> 
+(or parital titles if "Partial title matching" is checked) of windows that you want ScreenAlive 
+to activate for. This means that any time a window is opened with that title, ScreenAlive will 
+keep the screen from timing out (activating the screensaver or dimming to black). Note that if 
+"Enable ScreenAlive" is unchecked, this program will do nothing. You can minimize ScreenAlive 
+to the system tray to keep it from impeding your normal workflow and cluttering the taskbar.
 
 "Zen Jiggle": This activates Zen Jiggle mode. The way that ScreenAlive works is that it causes
 your pointer to move around to keep Windows from thinking that the current user is idle. In Zen

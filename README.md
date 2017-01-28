@@ -67,6 +67,22 @@ will be saved for all future instances of ScreenAlive in the Windows registry at
 
 That's it. Enjoy!
 
+Getting ScreenAlive to run on startup in Windows
+=======
+
+1. Make a new file in the same directory as ScreenAlive.exe
+2. Open the file in notepad (or whatever text editor you use), and type the following:
+>   start "" "ScreenAlive.exe" -m  
+>   exit  
+
+The `-m` flag makes it start minimized to tray, which is useful since it's meant to be used as a
+background program.
+3. Save the file as "script.bat" (make sure the file ending is .bat, not .txt)
+4. Type "run" into the start menu
+5. Type "shell:startup"
+6. Make a shortcut to your batch file and place it here
+That's it!
+
 Support
 =======
 

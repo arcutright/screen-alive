@@ -48,7 +48,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCompany("Cutright Industries")]
 [assembly: AssemblyProduct("ScreenAlive")]
 [assembly: AssemblyCopyright("Copyright © Aaron Cutright 2017")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.1.0.0")]
+[assembly: AssemblyFileVersion("1.1.0.0")]
 [assembly: Guid("e1fc2039-43a7-4843-8a43-8f896c257adc")]
 

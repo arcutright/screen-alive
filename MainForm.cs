@@ -52,6 +52,9 @@ namespace CutrightIndustries.ScreenAlive
                     Jiggler.Jiggle(-4, -4);
             }
             zig = !zig;
+            //check if there are any window title matches, if so, enable the jiggle timer
+            string[] lines = tbWindowTitles.Text.Split('\n');
+            jiggleTimer.Enabled = WindowDetection.IsAnyWindowOpen(lines, cbPartialTitleMatching.Checked);
         }
 
         private void cbEnabled_CheckedChanged(object sender, EventArgs e)

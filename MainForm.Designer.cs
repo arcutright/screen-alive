@@ -113,11 +113,10 @@ namespace CutrightIndustries.ScreenAlive
             this.bContextMenuClose,
             this.bConextMenuOpen});
             this.notifyIconContextMenu.Name = "notifyIconContextMenu";
-            this.notifyIconContextMenu.Size = new System.Drawing.Size(168, 48);
+            this.notifyIconContextMenu.Size = new System.Drawing.Size(168, 70);
             // 
             // bContextMenuClose
             // 
-            this.bContextMenuClose.CheckOnClick = true;
             this.bContextMenuClose.Name = "bContextMenuClose";
             this.bContextMenuClose.Size = new System.Drawing.Size(167, 22);
             this.bContextMenuClose.Text = "Exit ScreenAlive";
@@ -125,7 +124,6 @@ namespace CutrightIndustries.ScreenAlive
             // 
             // bConextMenuOpen
             // 
-            this.bConextMenuOpen.CheckOnClick = true;
             this.bConextMenuOpen.Name = "bConextMenuOpen";
             this.bConextMenuOpen.Size = new System.Drawing.Size(167, 22);
             this.bConextMenuOpen.Text = "Open ScreenAlive";

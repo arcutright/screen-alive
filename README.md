@@ -16,6 +16,10 @@ have chosen are open and move the virtual mouse if they are, and do nothing if t
 Since the smallest screen timeout in Windows is 60 seconds, this should always work and it is
 currently not a configurable setting, although I may add this functionality in the future.
 
+User Interface:
+
+![user interface](Screenshots/user_interface.png)
+
 Operation
 =========
 

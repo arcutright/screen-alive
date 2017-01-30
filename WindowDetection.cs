@@ -7,6 +7,7 @@
 
 #endregion
 
+using System;
 using System.Diagnostics;
 
 namespace CutrightIndustries.ScreenAlive
@@ -15,7 +16,7 @@ namespace CutrightIndustries.ScreenAlive
     {
         public static bool IsAnyWindowOpen(string[] windowTitles, bool partialMatchingEnabled)
         {
-            string title = "";
+            string title = "", pname = "";
             try
             {
                 for(int i = 0; i < windowTitles.Length; i++)
@@ -27,16 +28,21 @@ namespace CutrightIndustries.ScreenAlive
                     for(int p=0; p < processes.Length; p++)
                     {
                         title = processes[p].MainWindowTitle.Trim();
-                        if (title == null || title == "")
+                        pname = processes[p].ProcessName.Trim();
+                        Logger.DebugWithoutTimestamp("\tComparing \'", title, "\' to \'", windowTitles[i], "\'", ".. pname: \'", processes[p].ProcessName, "\'");
+                        if ((title == null || title == "") && (pname == null || pname == ""))
                             continue;
-                        if (partialMatchingEnabled && title.Contains(windowTitles[i]))
+                        if (partialMatchingEnabled && (title.Contains(windowTitles[i]) || pname.Contains(windowTitles[i])))
                             return true;
-                        else if (title.Equals(windowTitles[i]))
+                        else if (title.Equals(windowTitles[i]) || pname.Equals(windowTitles[i]))
                             return true;
                     }
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Logger.Debug("Error checking for open windows: " + ex.GetBaseException());
+            }
             return false;
         }
     }

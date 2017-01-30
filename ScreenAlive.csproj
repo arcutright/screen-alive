@@ -102,6 +102,7 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logger.cs" />
     <Compile Include="WindowDetection.cs" />
     <Compile Include="Jiggler.cs" />
     <Compile Include="MainForm.cs">

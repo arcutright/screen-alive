@@ -43,6 +43,8 @@ namespace CutrightIndustries.ScreenAlive
             this.label1 = new System.Windows.Forms.Label();
             this.cbPartialTitleMatching = new System.Windows.Forms.CheckBox();
             this.bTitlesUpdated = new System.Windows.Forms.Button();
+            this.enableScreenAliveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.notifyIconContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,23 +112,25 @@ namespace CutrightIndustries.ScreenAlive
             // notifyIconContextMenu
             // 
             this.notifyIconContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bContextMenuClose,
-            this.bConextMenuOpen});
+            this.enableScreenAliveToolStripMenuItem,
+            this.bConextMenuOpen,
+            this.toolStripSeparator1,
+            this.bContextMenuClose});
             this.notifyIconContextMenu.Name = "notifyIconContextMenu";
-            this.notifyIconContextMenu.Size = new System.Drawing.Size(168, 70);
+            this.notifyIconContextMenu.Size = new System.Drawing.Size(153, 98);
             // 
             // bContextMenuClose
             // 
             this.bContextMenuClose.Name = "bContextMenuClose";
-            this.bContextMenuClose.Size = new System.Drawing.Size(167, 22);
-            this.bContextMenuClose.Text = "Exit ScreenAlive";
+            this.bContextMenuClose.Size = new System.Drawing.Size(152, 22);
+            this.bContextMenuClose.Text = "Quit";
             this.bContextMenuClose.Click += new System.EventHandler(this.bContextMenuClose_Click);
             // 
             // bConextMenuOpen
             // 
             this.bConextMenuOpen.Name = "bConextMenuOpen";
-            this.bConextMenuOpen.Size = new System.Drawing.Size(167, 22);
-            this.bConextMenuOpen.Text = "Open ScreenAlive";
+            this.bConextMenuOpen.Size = new System.Drawing.Size(152, 22);
+            this.bConextMenuOpen.Text = "Open";
             this.bConextMenuOpen.Click += new System.EventHandler(this.bConextMenuOpen_Click);
             // 
             // tbWindowTitles
@@ -175,6 +179,19 @@ namespace CutrightIndustries.ScreenAlive
             this.bTitlesUpdated.UseVisualStyleBackColor = true;
             this.bTitlesUpdated.Click += new System.EventHandler(this.bTitlesUpdated_Click);
             // 
+            // enableScreenAliveToolStripMenuItem
+            // 
+            this.enableScreenAliveToolStripMenuItem.CheckOnClick = true;
+            this.enableScreenAliveToolStripMenuItem.Name = "enableScreenAliveToolStripMenuItem";
+            this.enableScreenAliveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enableScreenAliveToolStripMenuItem.Text = "Enabled?";
+            this.enableScreenAliveToolStripMenuItem.Click += new System.EventHandler(this.enableScreenAliveToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(170, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,6 +233,8 @@ namespace CutrightIndustries.ScreenAlive
         private System.Windows.Forms.ContextMenuStrip notifyIconContextMenu;
         private System.Windows.Forms.ToolStripMenuItem bContextMenuClose;
         private System.Windows.Forms.ToolStripMenuItem bConextMenuOpen;
+        private System.Windows.Forms.ToolStripMenuItem enableScreenAliveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

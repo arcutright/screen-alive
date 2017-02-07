@@ -69,6 +69,7 @@ namespace CutrightIndustries.ScreenAlive
         {
             try
             {
+                enableScreenAliveToolStripMenuItem.Checked = cbEnabled.Checked;
                 RegistryKey key = Registry.CurrentUser.CreateSubKey(REGISTRY.location,
                                                                     RegistryKeyPermissionCheck.ReadWriteSubTree);
                 if (cbEnabled.Checked)
@@ -254,6 +255,12 @@ namespace CutrightIndustries.ScreenAlive
             notifyIcon.Visible = false;
             //place icon in taskbar
             ShowInTaskbar = true;
+        }
+
+        private void enableScreenAliveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cbEnabled.Checked = enableScreenAliveToolStripMenuItem.Checked;
+            cbEnabled_CheckedChanged(null, null);
         }
     }
 }
